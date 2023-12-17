@@ -29,8 +29,8 @@ def genetic_algorithm(population_size, number_of_generations):
     fitness_history = []
 
     for i in range(population_size):
-        reg = random.uniform(0, 40)
-        lux = random.uniform(0, 30)
+        reg = random.uniform(0, 60)
+        lux = random.uniform(0, 40)
         population.append((reg, lux))
 
     best_solution = None
@@ -67,7 +67,8 @@ def genetic_algorithm(population_size, number_of_generations):
 
 
         """ Mutation """
-        mutation_rate = 1/(generation+1)
+        # mutation_rate = 1/(generation+1)
+        mutation_rate = 0.1
         for i in range(population_size):
             if random.random()<mutation_rate:
                 offspring[i] = (random.uniform(0,30), random.uniform(0, 60))
@@ -97,8 +98,8 @@ def genetic_algorithm(population_size, number_of_generations):
 
     return best_solution, best_fitness
 
-population_size = 100
-number_of_generations = 50
+population_size = 4
+number_of_generations = 100
 
 best_solution, best_fitness = genetic_algorithm(population_size, number_of_generations)
 
